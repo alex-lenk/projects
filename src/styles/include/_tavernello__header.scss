@@ -1,0 +1,243 @@
+.tavernello__header {
+  flex-shrink: 0;
+  position: relative;
+
+  &::after {
+    background: url(../img/tavernello/header-eu.jpg) no-repeat center;
+    content: '';
+    position: absolute;
+  }
+}
+
+.tavernello__header-holder {
+  height: inherit;
+  position: relative;
+
+  &::before {
+    background: url(../img/tavernello/header-1.jpg) no-repeat center;
+  }
+
+  &::after {
+    background: url(../img/tavernello/header-2.jpg) no-repeat center;
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    z-index: 1;
+    content: '';
+    background-size: contain;
+  }
+}
+
+.tavernello__header-title {
+  margin-bottom: 40px;
+  font-weight: 800;
+  color: #262E2B;
+}
+
+.tavernello__header-heading {
+  display: block;
+}
+
+.tavernello__header-btn {
+  color: #fff;
+  border: 1px solid #639180;
+  background-color: #639180;
+  box-shadow: 30px 20px 30px rgba(61, 61, 78, 0.13);
+  border-radius: 32px;
+  transition: background-color .2s ease-in-out, color .2s ease-in-out;
+
+  &:hover {
+    background-color: #fff;
+    color: #639180;
+  }
+}
+
+@media (min-width: 576px) {
+  .tavernello__header {
+    margin-top: -65px;
+    margin-bottom: 109px;
+  }
+  .tavernello__header-holder {
+    padding-top: 95px;
+  }
+  .tavernello__header-btn {
+    width: 280px;
+    height: 54px;
+  }
+}
+
+@media (min-width: 668px) {
+  .tavernello__header::after {
+    width: 248px;
+    height: 42px;
+    bottom: 0;
+  }
+  .tavernello__header-holder {
+    &::before {
+      right: 231px;
+      bottom: -70px;
+    }
+
+    &::after {
+      bottom: -23px;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .tavernello__header {
+    height: 1005px;
+    background: url(../img/tavernello/bg-header.jpg) no-repeat top center;
+  }
+  .tavernello__header-holder {
+    &::before {
+      width: 371px;
+    }
+
+    &::after {
+      width: 383px;
+    }
+  }
+  .tavernello__header-title {
+    font-size: 56px;
+    line-height: 72px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .tavernello__header::after {
+    right: 2%;
+  }
+  .tavernello__header-holder {
+    &::before {
+      height: 814px;
+    }
+
+    &::after {
+      height: 847px;
+    }
+  }
+}
+
+@media (min-width: 1366px) {
+  .tavernello__header-holder::after {
+    right: -48px;
+  }
+}
+
+@media (min-width: 1921px) {
+  .tavernello__header {
+    background-size: cover;
+  }
+}
+
+@media (max-width: 991px) {
+  .tavernello__header {
+    height: 800px;
+    background: url(../img/tavernello/bg-header-m.jpg) no-repeat left top;
+  }
+  .tavernello__header-title {
+    max-width: 337px;
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
+
+@media (max-width: 667px) {
+  .tavernello__header {
+    overflow: hidden;
+
+    &::after {
+      right: 16px;
+      width: 176px;
+      height: 30px;
+      bottom: 61px;
+      background-size: contain;
+    }
+  }
+  .tavernello__header-holder {
+    text-align: center;
+
+    &::before {
+      right: 144px;
+      width: 204px;
+      height: 549px;
+      bottom: 24px;
+    }
+
+    &::after {
+      width: 212px;
+      height: 549px;
+      bottom: 97px;
+      right: -31px;
+    }
+  }
+  .tavernello__header-title {
+    max-width: 282px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 575px) {
+  .tavernello__header {
+    padding-top: 65px;
+    margin-top: -32px;
+    margin-bottom: 73px;
+  }
+  .tavernello__header-btn {
+    width: 100%;
+    height: 40px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .tavernello__header {
+    background-size: cover;
+    background-position-x: left;
+  }
+  .tavernello__header-holder {
+    &::before {
+      height: 714px;
+    }
+
+    &::after {
+      height: 747px;
+    }
+  }
+}
+
+@media (min-width: 668px) and (max-width: 1365px) {
+  .tavernello__header-holder::after {
+    right: 0;
+  }
+}
+
+@media (min-width: 668px) and (max-width: 1199px) {
+  .tavernello__header::after {
+    left: 16px;
+  }
+}
+
+@media (min-width: 668px) and (max-width: 991px) {
+  .tavernello__header-holder {
+    &::before {
+      width: 283px;
+      height: 514px;
+      right: 141px;
+    }
+
+    &::after {
+      width: 271px;
+      height: 547px;
+    }
+  }
+}
+
+@media (min-width: 576px) and (max-width: 667px) {
+  .tavernello__header-holder::after {
+    bottom: -34px;
+  }
+}
