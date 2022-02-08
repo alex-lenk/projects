@@ -1,0 +1,1 @@
+"use strict";$(document).ready((function(){$(".js__go-anchor").on("click",(function(t){t.preventDefault();$("html, body").stop().animate({scrollTop:$(this.hash).offset().top-90},300)}))}));

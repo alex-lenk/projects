@@ -1,5 +1,3 @@
-'use strict'
-
 $(document).ready(function () {
   $('.js__go-anchor').on('click', function (e) {
     e.preventDefault();
