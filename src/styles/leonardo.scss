@@ -1,0 +1,1253 @@
+/* Begin: Variables */
+$fontFamilyTitle: playfairdisplay, sans-serif;
+$mainText: #707090;
+$blackColor: #2c2c38;
+$borderColor: #dfdfe6;
+$blueColor: #3E86DE;
+$redColor: #C8003C;
+$primaryColor: #ff9522;
+$lightText: #acacbc;
+$greenColor: #008415;
+$primaryLightColor: #fff2e4;
+$primaryLightColor2: #fff7ee;
+$primaryDarkColor: #f17d00;
+$primaryLinearGradient: linear-gradient(180deg, $primaryColor 0%, $primaryColor 0.01%, #FF6022 100%);
+$primaryLinearGradientBefore: linear-gradient(180deg, #E44000 0%, #EB891F 100%);
+$primaryLinearGradientAfter: linear-gradient(180deg, #E3841D 0%, #EB891F 0.01%, #E44000 100%);
+/* End: Variables */
+
+
+
+/* Begin: Modules */
+@import "include/reboot";
+@import "include/mixins";
+@import "include/modal";
+@import "include/close-component";
+@import "include/forms";
+@import "include/button";
+@import "include/auth";
+/* End: Modules */
+
+
+/* Begin: General styles */
+@font-face {
+  font-display: swap;
+  font-family: 'playfairdisplay';
+  src: url('../fonts/Playfairdisplaybold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'playfairdisplay';
+  src: url('../fonts/Playfairdisplayregular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'barlow';
+  src: url('../fonts/Barlowlight.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'barlow';
+  src: url('../fonts/Barlowregular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'barlow';
+  src: url('../fonts/Barlowmedium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'barlow';
+  src: url('../fonts/Barlowsemibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+body {
+  font-family: 'barlow', Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  margin: 0;
+  font-size: var(--bs-body-font-size);
+  font-weight: var(--bs-body-font-weight);
+  line-height: 24px;
+  color: #707090;
+  text-align: var(--bs-body-text-align);
+  background-color: var(--bs-body-bg);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.container {
+  max-width: 1248px;
+  width: 100%;
+  padding-right: 16px;
+  padding-left: 16px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $blackColor;
+}
+
+.btn {
+  height: 40px;
+  border-radius: 32px;
+  color: #fff;
+  border: 0;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &.disabled,
+  &:disabled {
+    opacity: .5;
+    pointer-events: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn__secondary {
+  width: 220px;
+  height: 40px;
+  background: #D6A558;
+}
+
+.btn__light {
+  width: 220px;
+  height: 40px;
+  background: transparent;
+  color: #D6A558;
+  border: 1px solid;
+}
+
+.list-unstyled {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.embed-responsive {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+
+  &::before {
+    display: block;
+    content: "";
+  }
+}
+
+.embed-responsive-16by9::before {
+  padding-top: 56.25%;
+}
+
+.embed-responsive .embed-responsive-item,
+.embed-responsive embed, .embed-responsive iframe,
+.embed-responsive object, .embed-responsive video {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* End: General styles */
+
+
+.leo__title {
+  padding-top: 0;
+  font-weight: 700;
+  font-family: $fontFamilyTitle;
+}
+
+.leo__header {
+  position: relative;
+  flex-shrink: 0;
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    content: '';
+  }
+}
+
+.leo__header-inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.leo__header-title {
+  margin-bottom: 50px;
+}
+
+.leo__header-eu {
+  position: absolute;
+}
+
+.leo__line {
+  text-align: center;
+}
+
+.leo__line-title {
+  line-height: 1;
+  color: $blackColor;
+  font-family: $fontFamilyTitle;
+}
+
+.leo__line-btn {
+  background: #DA9A36;
+  box-shadow: 5px 5px 10px rgba(32, 32, 36, 0.2);
+  transition: box-shadow .2s ease-in-out;
+}
+
+.leo__about {
+  background: #FAFAF9;
+}
+
+.leo__about-inner {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    background: url(../img/leonardo/decor/decor-004.svg) no-repeat;
+    background-size: contain;
+    content: '';
+  }
+}
+
+.leo__about-img {
+  order: 1;
+}
+
+.leo__about-title {
+  line-height: 1;
+  color: #A2873A;
+}
+
+.leo__about-text {
+  color: #7D7A78;
+  line-height: 24px;
+}
+
+.leo__video {
+  padding-top: 78px;
+  padding-bottom: 120px;
+}
+
+.leo__video-title {
+  line-height: 1;
+  color: #A2873A;
+}
+
+.leo__video-text {
+  line-height: 24px;
+  color: #7D7A78;
+}
+
+.leo__manufacturer-title {
+  color: #A2873A;
+}
+
+.leo__manufacturer-text {
+  line-height: 24px;
+}
+
+
+.leo__straightedge {
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.leo__straightedge-title {
+  color: #584D45;
+  line-height: 1;
+}
+
+.leo__straightedge-sub {
+  line-height: 1;
+  color: #A2873A;
+}
+
+.leo__straightedge-text {
+  max-width: 470px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 24px;
+}
+
+.leo__list {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.leo__product {
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.leo__straightedge-toscana {
+  order: 1;
+}
+
+.leo__product__22429,
+.leo__product__22427,
+.leo__product__22428 {
+  order: 2;
+}
+
+.leo__product-container {
+  position: relative;
+}
+
+.leo__product-holder {
+  position: relative;
+  z-index: 1;
+}
+
+.leo__product-media {
+  position: relative;
+}
+
+.leo__product-title {
+  color: $blackColor;
+}
+
+.leo__product-headline {
+  color: $blackColor;
+}
+
+.leo__product-detail {
+  font-weight: 500;
+  line-height: 1;
+  color: #7D7A78;
+}
+
+.leo__product-control {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.leo__product-caption {
+  margin-bottom: 5px;
+  font-size: 20px;
+  line-height: 28px;
+  color: $blackColor;
+}
+
+.leo__product-manufacturer {
+  margin-top: 40px;
+}
+
+.leo__product-desc {
+  line-height: 24px;
+  color: #7D7A78;
+}
+
+.leo__feature-subject {
+  margin-bottom: 29px;
+  font-size: 20px;
+  line-height: 28px;
+  color: $blackColor;
+}
+
+.leo__feature-heading {
+  line-height: 1;
+  color: #A2873A;
+}
+
+.leo__feature-value {
+  line-height: 26px;
+  color: #7D7A78;
+}
+
+@media (min-width: 768px) {
+  .leo__header {
+    background: #E4E3DF url(../img/leonardo/bg/main.jpg) no-repeat center bottom;
+    background-size: cover;
+
+    &::after {
+      background: url(../img/leonardo/decor/decor-002.png) no-repeat right bottom;
+    }
+  }
+
+  .leo__header__btn {
+    width: 280px;
+    height: 54px;
+    padding: 13px 40px;
+    background-color: #D6A558;
+    box-shadow: 10px 10px 15px rgba(32, 32, 36, 0.2);
+    font-size: 18px;
+    line-height: 28px;
+    transition: box-shadow .2s ease-in-out, background-color .2s ease-in-out, color .2s ease-in-out;
+
+    &:hover {
+      color: #fff;
+      background-color: #BE934F;
+      box-shadow: none;
+    }
+  }
+  .leo__line-btn {
+    width: 220px;
+    transition: background-color .2s ease-in-out, color .2s ease-in-out;
+
+    &:hover {
+      color: #fff;
+      background-color: #BE934F;
+      box-shadow: none;
+    }
+  }
+
+  .leo__add-basket {
+    transition: background-color .2s ease-in-out, color .2s ease-in-out;
+
+    &:hover {
+      color: #fff;
+      background-color: #BE934F;
+    }
+  }
+
+  .leo__line {
+    padding-top: 75px;
+    padding-bottom: 120px;
+    display: flex;
+    justify-content: center;
+  }
+  .leo__line-item {
+    margin-right: 16px;
+    margin-left: 16px;
+    transition: opacity .3s ease-in-out;
+
+    &:hover {
+      opacity: .8;
+    }
+  }
+  .leo__line-img {
+    margin-bottom: 8px;
+  }
+  .leo__line-title {
+    margin-bottom: 31px;
+    font-size: 40px;
+  }
+
+  .leo__about-inner {
+    padding-top: 104px;
+    padding-bottom: 100px;
+    display: flex;
+    align-items: center;
+
+    &::after {
+      width: 151px;
+      height: 296px;
+      top: -111px;
+      right: 16px;
+    }
+  }
+  .leo__about-content {
+    width: 52%;
+  }
+  .leo__about-title {
+    padding-right: 32px;
+    margin-bottom: 22px;
+  }
+  .leo__video-content {
+    margin-top: -212px;
+    padding: 48px 56px;
+    display: flex;
+    background-color: #fff;
+    box-shadow: 0 10px 30px rgba(61, 61, 78, 0.1);
+    position: relative;
+    z-index: 2;
+  }
+
+  .leo__video-img {
+    margin-right: 32px;
+    align-self: flex-start;
+  }
+
+  .leo__video-holder {
+    padding-top: 6px;
+  }
+  .leo__video-media {
+    z-index: 3;
+  }
+  .leo__video-media--close {
+    z-index: 1;
+  }
+  .leo__video-title {
+    margin-bottom: 19px;
+  }
+  .leo__manufacturer {
+    padding-bottom: 104px;
+  }
+  .leo__manufacturer-title {
+    margin-bottom: 17px;
+  }
+  .leo__straightedge {
+    padding-top: 57px;
+    padding-bottom: 45px;
+  }
+  .leo__straightedge-title {
+    margin-bottom: 23px;
+    font-size: 72px;
+  }
+  .leo__straightedge-sub {
+    margin-bottom: 33px;
+    font-size: 42px;
+  }
+
+
+  .leo__straightedge-classic {
+    background: url(../img/leonardo/bg/classic.jpg) no-repeat center top;
+  }
+
+  .leo__straightedge-toscana {
+    background: url(../img/leonardo/bg/toscana.jpg) no-repeat center top;
+    background-size: cover;
+  }
+
+
+  .leo__product-title {
+    margin-bottom: 11px;
+    font-size: 64px;
+    line-height: 72px;
+  }
+  .leo__product-headline {
+    margin-bottom: 29px;
+    font-size: 24px;
+    line-height: 28px;
+  }
+  .leo__product-detail {
+    font-size: 20px;
+    letter-spacing: 0.02em;
+  }
+  .leo__product-control {
+    padding-top: 31px;
+    padding-bottom: 32px;
+    border-top: 1px solid #DEE0EE;
+    border-bottom: 1px solid #DEE0EE;
+    position: relative;
+    z-index: 1;
+  }
+  .leo__product-detail {
+    margin-bottom: 40px;
+  }
+  .leo__add {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .leo__add-click {
+    margin-left: 16px;
+  }
+  .leo__feature-heading {
+    margin-bottom: 9px;
+    letter-spacing: 0.02em;
+  }
+  .leo__feature-item {
+    margin-bottom: 21px;
+
+    &:nth-child(2) {
+      margin-bottom: 37px;
+    }
+  }
+}
+
+@media (min-width: 870px) {
+  .leo__manufacturer {
+    display: flex;
+  }
+}
+
+@media (min-width: 1100px) {
+  .leo__header::after {
+    width: 55.14vw;
+    height: 972px;
+    background-size: contain;
+  }
+  .btn__secondary {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .leo__header-eu {
+    top: 0;
+    right: 0;
+  }
+  .leo__about-title {
+    font-size: 64px;
+  }
+  .leo__about-inner::after {
+    width: 151px;
+    height: 296px;
+  }
+  .leo__video-content {
+    width: 70%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .leo__video-content {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .leo__video-title {
+    font-size: 42px;
+  }
+  .leo__manufacturer-title {
+    font-size: 64px;
+    line-height: 75px;
+  }
+  .leo__manufacturer-content {
+    width: 51%;
+    padding-top: 4px;
+    padding-left: 32px;
+  }
+  .leo__straightedge {
+    margin-bottom: 40px;
+  }
+
+  .leo__product {
+    padding-top: 80px;
+    padding-bottom: 105px;
+  }
+  .leo__product-inner {
+    background-color: #FAFAF9;
+  }
+  .leo__product-holder {
+    min-height: 606px;
+    margin-right: -16px;
+    margin-left: -16px;
+    padding-top: 72px;
+    padding-bottom: 62px;
+    display: flex;
+
+    > * {
+      max-width: 100%;
+      padding-right: 16px;
+      padding-left: 16px;
+    }
+  }
+  .leo__product-media {
+    flex: 0 0 auto;
+    width: 16.66667%;
+  }
+  .leo__product-image {
+    position: absolute;
+    max-width: none;
+    top: -151px;
+    left: -34px;
+  }
+  .leo__product-showcase {
+    flex: 0 0 auto;
+    width: 41.66667%;
+    align-self: center;
+  }
+  .leo__feature {
+    flex: 0 0 auto;
+    width: 41.66667%;
+    align-self: center;
+  }
+  .leo__feature-subject {
+    padding-left: 24px;
+  }
+  .leo__feature-list {
+    padding-left: 24px !important;
+  }
+
+
+  .leo__product-container {
+    &::before,
+    &::after {
+      position: absolute;
+      top: 0;
+      content: '';
+    }
+  }
+
+  .leo__product__21082,
+  .leo__product__20859,
+  .leo__product__23814 {
+    .leo__product-container {
+      &::before {
+        width: 578px;
+        height: 606px;
+        right: 100%;
+        margin-right: -128px;
+        background: url(../img/leonardo/decor/decor-006.png) no-repeat center;
+      }
+
+      &::after {
+        width: 545px;
+        height: 606px;
+        left: 100%;
+        margin-left: -187px;
+        background: url(../img/leonardo/decor/decor-007.png) no-repeat center;
+      }
+    }
+  }
+  .leo__product__20859 {
+    .leo__product-media {
+      order: 1;
+    }
+
+    .leo__product-image {
+      left: 15px;
+    }
+
+    .leo__feature {
+      order: 2;
+    }
+  }
+  .leo__product__23814 {
+    .leo__product-media {
+      order: 1;
+    }
+
+    .leo__product-image {
+      left: 0;
+    }
+  }
+
+  .leo__product__22429,
+  .leo__product__22427,
+  .leo__product__22428 {
+    .leo__product-container {
+      min-height: 742px;
+
+      &::before {
+        width: 305px;
+        height: 643px;
+        right: 100%;
+        margin-right: 32px;
+        background: url(../img/leonardo/decor/decor-008.png) no-repeat center;
+      }
+
+      &::after {
+        width: 305px;
+        height: 643px;
+        left: 100%;
+        background: url(../img/leonardo/decor/decor-009.png) no-repeat center;
+      }
+    }
+  }
+
+  .leo__product__22429 {
+    .leo__product-media {
+      order: 1;
+    }
+
+    .leo__product-image {
+      left: 17px;
+    }
+  }
+  .leo__product__22427 {
+    .leo__product-media {
+      order: 1;
+    }
+
+    .leo__product-image {
+      left: 15px;
+    }
+
+    .leo__feature {
+      order: 2;
+    }
+  }
+  .leo__product__22428 .leo__product-image {
+    left: -55px;
+  }
+}
+
+@media (min-width: 1921px) {
+  .leo__header {
+    height: 900px;
+  }
+  .leo__straightedge {
+    background-size: cover;
+  }
+  .leo__header-title {
+    font-size: 72px;
+    line-height: 80px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .leo__product {
+    padding-top: 80px;
+    padding-bottom: 59px;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      content: '';
+    }
+  }
+
+  .leo__product__20859,
+  .leo__product__22427 {
+    .leo__product-image {
+      margin-left: 57px;
+    }
+  }
+
+  .leo__product__21082,
+  .leo__product__23814 {
+    background-color: #fafaf9;
+
+    &::after {
+      background: url(../img/leonardo/decor/decor-006.png) no-repeat left center;
+    }
+  }
+  .leo__product__20859::after {
+    background: url(../img/leonardo/decor/decor-007.png) no-repeat center;
+  }
+}
+
+@media (max-width: 1099px) {
+  .leo__header-eu {
+    left: 16px;
+  }
+  .leo__header {
+    overflow: hidden;
+  }
+  .leo__header-title {
+    font-size: 6.55vw;
+    line-height: 9.1vw;
+  }
+}
+
+@media (max-width: 991px) {
+  .leo__video-img {
+    display: none;
+  }
+  .leo__manufacturer-img {
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .leo__header {
+    height: 121vw;
+    background: url(../img/leonardo/bg/main-m.jpg) no-repeat center bottom;
+
+    &::after {
+      width: 59%;
+      height: 135vw;
+      background: url(../img/leonardo/decor/decor-010.png) no-repeat bottom right;
+      background-size: contain;
+    }
+  }
+  .leo__header__btn {
+    display: none !important;
+  }
+  .leo__header-eu {
+    top: 0;
+  }
+
+  .leo__line {
+    padding-top: 40px;
+    padding-bottom: 80px;
+  }
+  .leo__line-item {
+    padding-left: 16px;
+    padding-right: 16px;
+    display: block;
+
+    &:not(:last-of-type) {
+      margin-bottom: 64px;
+    }
+  }
+  .leo__line-img {
+    margin-bottom: 13px;
+  }
+  .leo__line-title {
+    margin-bottom: 27px;
+    font-size: 7.8vw;
+  }
+  .leo__line-btn {
+    width: 76%;
+  }
+
+  .leo__about-inner {
+    padding-top: 64px;
+    padding-bottom: 47px;
+
+    &::after {
+      width: 69px;
+      height: 135px;
+      top: 194px;
+      right: 16px;
+    }
+  }
+  .leo__about-img {
+    margin-bottom: 44px;
+  }
+  .leo__about-title {
+    margin-bottom: 14px;
+    font-size: 7.8vw;
+  }
+  .leo__video-media {
+    margin-bottom: 34px;
+  }
+  .leo__video-title {
+    margin-bottom: 14px;
+    font-size: 7.8vw;
+  }
+  .leo__manufacturer {
+    margin-left: -16px;
+    margin-right: -16px;
+    padding: 0 16px 49px;
+    background-color: #FAFAF9;
+  }
+  .leo__manufacturer-img {
+    margin-bottom: 31px;
+  }
+  .leo__manufacturer-title {
+    margin-bottom: 13px;
+    font-size: 9vw;
+    line-height: 10.8vw;
+  }
+
+  .leo__straightedge {
+    padding-top: 69px;
+    padding-bottom: 63px;
+    position: relative;
+    overflow: hidden;
+  }
+  .leo__straightedge-title {
+    margin-bottom: 16px;
+    font-size: 8.8vw;
+  }
+  .leo__straightedge-sub {
+    margin-bottom: 19px;
+    font-size: 6.7vw;
+  }
+  .leo__straightedge-inner {
+    position: relative;
+    z-index: 1;
+  }
+  .leo__straightedge-classic {
+    background: url(../img/leonardo/bg/classic-m.jpg) no-repeat center top;
+
+    &::before {
+      width: 361px;
+      height: 388px;
+      background: url(../img/leonardo/decor/classic.png) no-repeat center top;
+      position: absolute;
+      top: 0;
+      left: 16px;
+      content: '';
+      overflow: hidden;
+    }
+  }
+  .leo__straightedge-toscana {
+    background: url(../img/leonardo/bg/toscana-m.jpg) no-repeat center top;
+    background-size: cover;
+  }
+
+  .leo__product__21082,
+  .leo__product__23814 {
+    &::after {
+      width: 387px;
+      height: 385px;
+      left: -120px;
+      top: 0;
+      background-size: contain;
+    }
+  }
+  .leo__product__20859::after {
+    width: 412px;
+    height: 325px;
+    left: -120px;
+    top: 0;
+    background-size: contain;
+  }
+  .leo__product__23814 {
+    margin-bottom: 80px;
+  }
+
+
+  .leo__product__22429,
+  .leo__product__22427,
+  .leo__product__22428 {
+    &::after {
+      width: 159px;
+      height: 334px;
+      left: 0;
+      top: 0;
+      background: url(../img/leonardo/decor/decor-008.png) no-repeat center;
+      background-size: contain;
+    }
+  }
+  .leo__product__22429,
+  .leo__product__22428 {
+    background-color: #FAFAF9;
+  }
+
+
+  .leo__product-media {
+    height: 296px;
+    text-align: center;
+  }
+  .leo__product-image {
+    max-height: 100%;
+    margin-left: 29px;
+  }
+  .leo__product-showcase {
+    margin-top: -4px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  .leo__product-manufacturer {
+    text-align: left;
+  }
+  .leo__product-title {
+    margin-bottom: 9px;
+    font-size: 6.8vw;
+  }
+  .leo__product-headline {
+    margin-bottom: 25px;
+    font-size: 4.5vw;
+  }
+  .leo__product-detail {
+    margin-bottom: 32px;
+  }
+  .leo__add {
+    width: 100%;
+  }
+  .leo__add-basket,
+  .leo__add-click {
+    max-width: 328px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .leo__add-click {
+    margin-top: 16px;
+  }
+  .leo__feature-heading {
+    margin-bottom: 13px;
+  }
+  .leo__feature-item {
+    margin-bottom: 28px;
+
+    &:nth-child(2) {
+      margin-bottom: 45px;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .leo__line-title {
+    font-size: 4vw;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1099px) {
+  .leo__header {
+    height: 81.9vw;
+
+    &::after {
+      width: 97vw;
+      height: 86vw;
+      left: 50%;
+      background-size: contain;
+    }
+  }
+  .leo__header-eu {
+    bottom: 0;
+  }
+  .leo__about-inner::after {
+    width: 11.5vw;
+    height: 22.5vw;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .leo__about-img {
+    max-width: 48vw;
+  }
+  .leo__about-title {
+    font-size: 4.8vw;
+  }
+  .leo__video-content {
+    margin-left: 55px;
+    margin-right: 55px;
+  }
+  .leo__video-title {
+    font-size: 4.2vw;
+  }
+  .leo__manufacturer-img {
+    max-width: 472px;
+    align-self: center;
+  }
+  .leo__manufacturer-title {
+    font-size: 4.8vw;
+    line-height: 5.6vw;
+  }
+  .leo__manufacturer-content {
+    padding-left: 16px;
+  }
+
+  .leo__product-holder {
+    display: grid;
+    grid-template-rows: auto auto;
+  }
+  .leo__product-media {
+    padding-top: 35px;
+    align-self: center;
+    grid-area: media;
+  }
+  .leo__product-showcase {
+    margin-bottom: 40px;
+    grid-area: showcase;
+  }
+  .leo__feature {
+    grid-area: feature;
+  }
+
+
+  .leo__straightedge {
+    background-position-x: -280px;
+    background-size: cover;
+  }
+  .leo__straightedge-toscana {
+    margin-bottom: 120px;
+  }
+
+  .leo__product {
+    margin-bottom: 120px;
+  }
+
+  .leo__product__21082,
+  .leo__product__23814 {
+    &::after {
+      width: 578px;
+      height: 606px;
+      right: -143px;
+    }
+
+    .leo__product-holder {
+      gap: 0 4px;
+      grid-template-columns: 25% 50%;
+      grid-template-areas:
+            "media showcase"
+            "media feature";
+    }
+  }
+
+  .leo__product__21082 .leo__product-image {
+    margin-left: -30px;
+  }
+  .leo__product__20859 {
+    &::after {
+      width: 545px;
+      height: 606px;
+      right: -143px;
+    }
+
+    .leo__product-holder {
+      gap: 0 0;
+      grid-template-columns: 50% 25%;
+      grid-template-areas:
+            "showcase media"
+            "feature media";
+    }
+  }
+  .leo__product__23814 .leo__product-image {
+    margin-left: 20px;
+  }
+
+  .leo__product__22429,
+  .leo__product__22428 {
+    &::after {
+      width: 305px;
+      height: 100%;
+      right: 0;
+      background: url(../img/leonardo/decor/decor-009.png) no-repeat center;
+    }
+
+    .leo__product-holder {
+      gap: 0 0;
+      grid-template-columns: 50% 25%;
+      grid-template-areas:
+            "showcase media"
+            "feature media";
+    }
+  }
+
+  .leo__product__22427 {
+    &::after {
+      width: 305px;
+      height: 100%;
+      right: 0;
+      background: url(../img/leonardo/decor/decor-008.png) no-repeat center;
+    }
+
+    .leo__product-holder {
+      gap: 0 4px;
+      grid-template-columns: 25% 50%;
+      grid-template-areas:
+            "media showcase"
+            "media feature";
+    }
+  }
+  .leo__product__22429,
+  .leo__product__22427,
+  .leo__product__22428 {
+    background-color: #FAFAF9;
+  }
+  .leo__product__22429 .leo__product-image {
+    margin-left: 32px;
+  }
+  .leo__product__22427 .leo__product-image {
+    margin-left: 0;
+  }
+  .leo__product__22428 .leo__product-image {
+    margin-left: -10px;
+  }
+}
+
+@media (min-width: 1100px) and (max-width: 1920px) {
+  .leo__header {
+    height: 46.464vw;
+  }
+  .leo__header-title {
+    font-size: 3.55vw;
+    line-height: 4vw;
+  }
+}
+
+@media (min-width: 415px) and (max-width: 767px) {
+  .leo__line-btn {
+    width: 85%;
+  }
+}
