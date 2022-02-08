@@ -1,0 +1,204 @@
+.btn {
+  height: 40px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &.disabled,
+  &:disabled {
+    opacity: .5;
+    pointer-events: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn-text {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 3;
+}
+
+.btn-primary {
+  min-width: 141px;
+  border-radius: 32px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border-width: 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  color: #fff;
+  background: $primaryLinearGradient;
+
+  &::before,
+  &::after {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    opacity: 0;
+    content: '';
+    transition: opacity .2s ease-in-out;
+  }
+
+  &::before {
+    z-index: 2;
+    background: $primaryLinearGradientBefore;
+  }
+
+  &::after {
+    z-index: 1;
+    background: $primaryLinearGradientAfter;
+  }
+
+  &:active::before {
+    opacity: 1;
+  }
+}
+
+.btn-secondary {
+  min-width: 141px;
+  border-radius: 32px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border-width: 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  color: #fff;
+  background-color: $primaryColor;
+  transition: background-color .2s ease-in-out;
+
+  &:active {
+    background-color: #DE7A0D;
+  }
+}
+
+.btn-light {
+  border-radius: 32px;
+  padding-bottom: 7px;
+  border: 1px solid;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  color: $primaryColor;
+  background-color: transparent;
+
+  &:focus {
+    color: $primaryColor;
+    background-color: $primaryLightColor;
+  }
+
+  &:active {
+    color: #fff;
+    background-color: $primaryColor;
+  }
+
+  &.disabled,
+  &:disabled {
+    opacity: .5;
+    pointer-events: none;
+  }
+}
+
+.btn-arrow {
+  width: 10px;
+  height: 10px;
+  margin-top: -2px;
+  fill: #fff;
+  margin-left: 3px;
+  transform: rotate(90deg);
+}
+
+.btn-transparent {
+  padding: 6px 32px;
+  background-color: transparent;
+  border: none;
+  font-size: 14px;
+  line-height: 16px;
+  color: $mainText;
+  transition: color .2s ease-in-out;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    color: $primaryColor;
+  }
+}
+
+@media (min-width: 992px) {
+  .btn-light {
+    min-width: 141px;
+    padding-top: 6px;
+    transition: background-color .2s ease-in-out, color .2s ease-in-out;
+
+    &:hover,
+    &:focus {
+      color: $primaryColor;
+      background-color: $primaryLightColor;
+    }
+  }
+
+  .btn-primary:hover {
+    color: #fff;
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  .btn-secondary:hover {
+    color: #fff;
+    background-color: $primaryDarkColor;
+  }
+}
+
+@media (min-width: 1280px) {
+  .btn {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .btn {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+@media (max-width: 991px) {
+  .btn-light {
+    min-width: 115px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+  .btn-primary:hover {
+    color: #fff;
+  }
+  .btn-secondary:hover {
+    color: #fff;
+  }
+}
+
+@media (max-width: 575px) {
+  .btn-light {
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1279px) {
+  .btn {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}

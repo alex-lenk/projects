@@ -5,10 +5,7 @@ const {series, watch, src, dest, lastRun} = gulp
 
 // Define "require"
 import {createRequire} from "module";
-
 const require = createRequire(import.meta.url);
-
-import twig from 'gulp-twig'
 import browserSync from 'browser-sync'
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
@@ -19,6 +16,7 @@ import rename from 'gulp-rename'
 import cleanCSS from 'gulp-clean-css'
 
 const uglifyEs = require('gulp-uglify-es').default
+const rigger = require('gulp-rigger')
 import newer from 'gulp-newer'
 import svgMin from 'gulp-svgmin'
 import svgStore from 'gulp-svgstore'
@@ -75,6 +73,8 @@ const scss = () => {
 
 const js = () => {
   return src(pathFiles.js.src)
+    .pipe(rigger())
+    .pipe(uglifyEs())
     .pipe(dest(pathFiles.js.build))
     .pipe(browserSync.stream())
 }
