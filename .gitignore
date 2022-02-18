@@ -4,6 +4,7 @@ node_modules
 *.epub
 *.mobi
 *.pdf
+*.mp4
 /.git/*
 /.htaccess
 /*.htaccess

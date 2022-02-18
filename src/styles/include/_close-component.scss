@@ -1,0 +1,52 @@
+.close-component {
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  position: absolute;
+  overflow: hidden;
+  z-index: 1;
+  text-shadow: none;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  &:hover .close-component__icon {
+    fill: $blackColor;
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+
+    .close-component__icon {
+      fill: $primaryColor;
+    }
+  }
+}
+
+.close-component__icon {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 10px;
+  left: 8px;
+  fill: $mainText;
+  transition: fill .2s ease-in-out;
+}
+
+@media (min-width: 576px) {
+  .close-component {
+    top: 13px;
+    right: 14px;
+  }
+}
+
+@media (max-width: 575px) {
+  .close-component {
+    top: 8px;
+    right: 6px;
+  }
+}
